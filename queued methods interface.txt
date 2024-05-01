@@ -1,0 +1,74 @@
+package project8;
+import java.util.Scanner;
+
+interface QueueMethods {
+    void enqueue();
+    void dequeue();
+    boolean isFull();
+    boolean isEmpty();
+    int size();
+}
+
+class Queue_data {
+    public int[] arr;
+    public int front;
+    public int rear;
+    public int capacity;
+    public int count;
+
+    Queue_data(int x) {
+        arr = new int[x];
+        front = 0;
+        rear = -1;
+        capacity = x;
+        count = 0;
+    }
+}
+
+class Queue extends Queue_data implements QueueMethods {
+    Scanner input = new Scanner(System.in);
+
+    Queue(int x) {
+        super(x);
+    }
+
+    public int size() {
+        return count;
+    }
+
+    public boolean isFull() {
+        return (size() == capacity);
+    }
+
+    public boolean isEmpty() {
+        return (size() == 0); // Corrected condition for empty queue
+    }
+
+    public void enqueue() {
+        if (isFull())
+            System.out.println("Queue is Full.");
+        else {
+            System.out.print("Enter the element: ");
+            rear++;
+            arr[rear] = input.nextInt();
+            count++;
+        }
+    }
+
+    public void dequeue() {
+        if (isEmpty())
+            System.out.println("Queue is Empty.");
+        else {
+            System.out.println("Element Dequeued is: " + arr[front]);
+            front++;
+            count--;
+        }
+    }
+
+    public void display() {
+        for (int i = front; i <= rear; i++) {
+            System.out.print(arr[i] + " <-- ");
+        }
+        System.out.println();
+    }
+}

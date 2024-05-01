@@ -1,0 +1,25 @@
+package project4;
+class Record1 {
+    String name;
+    int roll_no;
+
+    void reg(String name, int roll_no) {
+        System.out.println("Name: " + name + " Roll no: " + roll_no);
+    }
+
+    void reg(int roll_no, String name) {
+        System.out.println("Roll no: " + roll_no + " Name: " + name);
+    }
+}
+
+public class MethodOverloading3 {
+    public static void main(String[] args) {
+        System.out.println("Method overloading if sequence of parameters changes");
+
+        Record1 a2 = new Record1();
+        a2.reg("DEVANSHU", 42314);
+
+        Record1 a3 = new Record1();
+        a3.reg(42314, "DEVANSHU");
+    }
+}

@@ -1,0 +1,80 @@
+package project5;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class IntegerSorting {
+
+    // Method to sort array in ascending order using built-in method
+    public static void sortAscendingBuiltIn(int[] arr) {
+        Arrays.sort(arr);
+    }
+
+    // Method to sort array in descending order using built-in method
+    public static void sortDescendingBuiltIn(int[] arr) {
+        Arrays.sort(arr);
+        reverseArray(arr);
+    }
+
+    // Method to sort array in ascending order using user-defined method (Bubble Sort)
+    public static void sortAscendingUserDefined(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n-1; i++) {
+            for (int j = 0; j < n-i-1; j++) {
+                if (arr[j] > arr[j+1]) {
+                    // Swap arr[j] and arr[j+1]
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+    }
+
+    // Method to sort array in descending order using user-defined method
+    public static void sortDescendingUserDefined(int[] arr) {
+        sortAscendingUserDefined(arr);
+        reverseArray(arr);
+    }
+
+    // Method to reverse the array
+    public static void reverseArray(int[] arr) {
+        int start = 0;
+        int end = arr.length - 1;
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Create array
+        int[] arr = new int[5];
+        System.out.println("Enter 5 integers:");
+
+        // Input array elements
+        for (int i = 0; i < 5; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        // Sort and display in ascending order using built-in method
+        sortAscendingBuiltIn(arr);
+        System.out.println("Array sorted in ascending order using built-in method: " + Arrays.toString(arr));
+
+        // Sort and display in descending order using built-in method
+        sortDescendingBuiltIn(arr);
+        System.out.println("Array sorted in descending order using built-in method: " + Arrays.toString(arr));
+
+        // Sort and display in ascending order using user-defined method
+        sortAscendingUserDefined(arr);
+        System.out.println("Array sorted in ascending order using user-defined method: " + Arrays.toString(arr));
+
+        // Sort and display in descending order using user-defined method
+        sortDescendingUserDefined(arr);
+        System.out.println("Array sorted in descending order using user-defined method: " + Arrays.toString(arr));
+    }
+}

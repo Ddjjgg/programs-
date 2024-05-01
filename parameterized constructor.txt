@@ -1,0 +1,14 @@
+package project4;
+public class ParameterizedConstructor {
+    private int num;
+
+    public ParameterizedConstructor(int n) {
+        num = n;
+        System.out.println("Parameterized constructor initialized with: " + num);
+    }
+
+    public static void main(String[] args) {
+        ParameterizedConstructor obj = new ParameterizedConstructor(10);
+    }
+}
+

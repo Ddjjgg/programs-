@@ -1,0 +1,29 @@
+package project8;
+
+import java.util.Scanner;
+
+public class Exp8 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the size of the Queue: ");
+        int size = input.nextInt();
+        Queue obj = new Queue(size);
+        char loop = 'Y';
+        while (loop == 'Y' || loop == 'y') {
+            System.out.print("""
+                    1. Enqueue the element
+                    2. Dequeue the element
+                    3. Display the Queue
+                    Enter your choice: """);
+            int choice = input.nextInt();
+            switch (choice) {
+                case 1 -> obj.enqueue();
+                case 2 -> obj.dequeue();
+                case 3 -> obj.display();
+                default -> System.out.println("Invalid Input...");
+            }
+            System.out.print("Do you want to continue [Y/n]: ");
+            loop = input.next().charAt(0);
+        }
+    }
+}
