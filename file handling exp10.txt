@@ -1,0 +1,25 @@
+package project10;
+import java.io.*;
+
+public class FileHandling {
+    public static void main(String[] args) {
+        String inputFile = "input.txt";
+        String outputFile = "output.txt";
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+             BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                writer.write(line);
+                writer.newLine(); // Adding a newline after each line
+            }
+
+            System.out.println("File content copied successfully!");
+        } catch (FileNotFoundException e) {
+            System.out.println("Input file not found: " + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("Error reading/writing file: " + e.getMessage());
+        }
+    }
+}
