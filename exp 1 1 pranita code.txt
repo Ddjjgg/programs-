@@ -1,0 +1,27 @@
+import java.awt.*;
+import java.applet.Applet;
+
+public class Exp11 extends Applet {
+    Font f1;
+    public void init() {
+        resize(500, 500);
+        f1 = new Font("Times New Roman", Font.ITALIC, 20);
+    }
+
+    public void paint(Graphics g) {
+        g.setColor(Color.black);
+        g.setFont(f1);
+        g.drawString("Experiment 11", 20, 20);
+        g.drawString("PRANITA GAVALI", 20, 40);
+        g.drawString("32221", 20, 60);
+        g.drawLine(20, 80, 20, 120);
+        g.drawRect(20, 150, 30, 50);
+        g.drawLine(20, 230, 20, 280);
+        g.drawLine(20, 280, 50, 280);
+        g.drawLine(20, 230, 50, 280);
+        g.fillOval(20, 310, 30, 30);
+        g.drawArc(20, 370, 80, 100, 0, 90);
+        g.drawLine(40, 370, 40, 420);
+        g.drawLine(40, 420, 80, 420);
+    }
+}

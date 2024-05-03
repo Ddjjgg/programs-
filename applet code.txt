@@ -1,0 +1,66 @@
+
+applet code
+
+import java.applet.*;
+import java.awt.*;
+
+public class Hello extends Applet {
+    Font f1;
+
+    public void init() {
+        resize(400, 400);
+        setBackground(Color.white);
+        f1 = new Font("Arial", Font.ITALIC, 20);
+    }
+
+    public void start() {}
+
+    public void paint(Graphics g) {
+        g.setColor(Color.red);
+        g.setFont(f1);
+        g.drawString("Hello", 20, 20);
+        g.drawLine(30, 30, 100, 100);
+        g.fillRect(30, 150, 30, 50);
+        g.fillOval(30, 250, 30, 30);
+    }
+
+    public void stop() {}
+
+    public void destroy() {}
+}
+
+
+html code save with .html extension
+
+<html>
+<head>
+    <title>Applet</title>
+</head>
+<body>
+    <applet code="Hello.class" width="400" height="400">
+    </applet>
+</body>
+</html>
+
+
+process to do
+
+To run the HTML file with your Java applet in a browser, follow these steps:
+
+Save your Java code:
+Save your Java code in a file named Hello.java.
+Compile your Java code:
+Open a terminal or command prompt, navigate to the directory where your Hello.java file is located, and compile it using the Java compiler (javac). For example:
+Copy code
+javac Hello.java
+This will generate Hello.class file.
+Create the HTML file:
+Open a text editor and copy the HTML code provided earlier into a new file. Save this file with a .html extension, for example, applet.html.
+Place the compiled class file:
+Move the compiled Hello.class file to the same directory as your HTML file (applet.html).
+Open the HTML file in a browser:
+Locate the HTML file (applet.html) in your file explorer, then double-click it to open it in your default web browser.
+Enable Java plugin (if necessary):
+Some modern web browsers may not support Java applets by default, or they may require you to enable the Java plugin. Follow the browser-specific instructions to enable Java if prompted.
+View the applet:
+Once the HTML file is opened in the browser and Java is enabled, you should see your Java applet displayed within the browser window.
