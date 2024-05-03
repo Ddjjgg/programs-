@@ -1,0 +1,60 @@
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class FileHandling {
+
+    public static void main(String[] args) {
+        try {
+            File f1 = new File("sample.txt");
+
+            if (f1.createNewFile()) {
+                System.out.println("Successfully created file");
+            } else {
+                System.out.println("File already exists");
+            }
+
+            System.out.println("Name: " + f1.getName());
+            System.out.println("Path: " + f1.getPath());
+            System.out.println("Absolute Path: " + f1.getAbsolutePath());
+            System.out.println("Parent: " + f1.getParent());
+            System.out.println("Size: " + f1.length() + " bytes");
+            System.out.println(f1.exists() ? "File exists" : "File does not exist");
+            System.out.println(f1.canRead() ? "File readable" : "File not readable");
+            System.out.println(f1.canWrite() ? "File writable" : "File not writable");
+            System.out.println(f1.isDirectory() ? "Is a Directory" : "Not a Directory");
+
+            FileWriter f5 = new FileWriter(f1);
+            f5.write("This is the demo for File Handling\n");
+            f5.append("Contents of First file are copied to the another file\n");
+            f5.close();
+        } catch (IOException e) {
+            System.out.println("Error has occurred");
+            e.printStackTrace();
+        }
+
+        try {
+            File f2 = new File("sample2.txt");
+
+            if (f2.createNewFile()) {
+                System.out.println("File is successfully created");
+            } else {
+                System.out.println("File is not created");
+            }
+
+            FileReader f3 = new FileReader("sample.txt");
+            FileWriter f4 = new FileWriter(f2);
+            int c;
+            while ((c = f3.read()) != -1) {
+                System.out.print((char) c);
+                f4.write(c);
+            }
+            f3.close();
+            f4.close();
+        } catch (IOException e) {
+            System.out.println("Error has occurred");
+            e.printStackTrace();
+        }
+    }
+}
